@@ -1,0 +1,48 @@
+ReduceLROnPlateau:
+  cooldown: 32
+  epsilon: 0.001
+  factor: 0.5
+  min_lr: 1.0e-08
+  mode: auto
+  monitor: val_loss
+  patience: 32
+  verbose: 0
+base_trainable: true
+batch_size: 256
+class_mode: binary
+class_weights: null
+classes:
+- normal
+- special
+contrast: null
+data_augmentation: true
+data_train: /data/UCSF_MAMMO/2018-02-png/withx_valset_4000_train
+data_val: /data/UCSF_MAMMO/2018-02-png/withx_valset_4000_test
+dropout: 0.5
+fill_mode: reflect
+final_activation: sigmoid
+height_shift_range: 0.125
+horizontal_flip: true
+init_epoch: 0
+loss_weights: null
+lr: 0.0001
+n_classes: 1
+nb_epoch: 500
+ndense: 0
+oversampling: false
+pretrained: true
+rotation_range: 15
+samplewise_center: false
+seed: 2
+target_side: 99
+target_size:
+- 99
+- 99
+truncate_quantile: null
+vertical_flip: false
+weightfile: null
+width_shift_range: 0.125
+zoom_range:
+- 0.8
+- 1.2
+ztransform: false

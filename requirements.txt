@@ -1,0 +1,23 @@
+Cython==0.27.3
+h5py==2.7.0
+imgaug==0.2.5
+Keras==2.0.8
+-e git+https://github.com/raghakot/keras-vis@40b27dfa3ecb84cdde5ec6b44251923c3266cc40#egg=keras_vis
+lime==0.1.1.29
+matplotlib==2.0.2
+mudicom==0.1.2
+numpy==1.14.0
+opencv-python==3.3.0.10
+pandas==0.20.2
+Pillow==4.1.1
+pyaml==17.7.2
+-e git+https://github.com/cocodataset/cocoapi/@727b546dd9fa4e4bb113213c98a3925829fac0bf#egg=pycocotools&subdirectory=PythonAPI
+pydicom==0.9.9
+PyYAML==3.12
+scikit-image==0.13.0
+scikit-learn==0.18.1
+scipy==0.19.1
+seaborn==0.7.1
+sklearn==0.0
+tensorflow-gpu==1.4.1
+tensorflow-tensorboard==0.4.0rc3

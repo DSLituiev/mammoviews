@@ -1,0 +1,48 @@
+ReduceLROnPlateau:
+  cooldown: 8
+  epsilon: 0.001
+  factor: 0.5
+  min_lr: 1.0e-12
+  mode: auto
+  monitor: val_loss
+  patience: 64
+  verbose: 0
+base_trainable: false
+batch_size: 16
+class_mode: categorical
+class_weights:
+- 1
+- 1
+classes:
+- normal
+- wire
+data_augmentation: true
+data_train: /data/UCSF_MAMMO/2018-02-png/each_class_4189_train/
+data_val: /data/UCSF_MAMMO/2018-02-png/each_class_4189_test/
+dropout: 0.5
+fill_mode: reflect
+final_activation: softmax
+height_shift_range: 0.125
+horizontal_flip: true
+init_epoch: 0
+lr: 0.001
+n_classes: 2
+nb_epoch: 500
+ndense: 0
+oversampling: false
+rescale: 1
+rotation_range: 30
+samplewise_center: false
+seed: 1
+target_side: 299
+target_size:
+- 299
+- 299
+truncate_quantile: null
+vertical_flip: false
+weightfile: null
+width_shift_range: 0.125
+zoom_range:
+- 0.8
+- 1.2
+ztransform: true
