@@ -13,7 +13,7 @@ import scipy.ndimage as ndi
 from six.moves import range
 import os
 import threading
-import warnings
+from warnings import warn
 import multiprocessing.pool
 from functools import partial
 from collections import Counter
@@ -59,7 +59,11 @@ _OPENCV_INTERPOLATION_METHODS = {
 
 import json
 from croppad import crop_pad_center
-from pycocotools.mask import encode, decode
+
+try:
+    from pycocotools.mask import encode, decode
+except:
+    warn('no pycocotools found')
 
 
 def random_rotation(x, rg, row_axis=1, col_axis=2, channel_axis=0,
@@ -426,7 +430,7 @@ def load_img_opencv(path, grayscale=False, color_mode='rgb', target_size=None,
         ValueError: if interpolation method is not supported.
     """
     if grayscale is True:
-        warnings.warn('grayscale is deprecated. Please use '
+        warn('grayscale is deprecated. Please use '
                       'color_mode = "grayscale"')
         color_mode = 'grayscale'
         
@@ -497,7 +501,7 @@ def load_img_pil(path, grayscale=False, color_mode='rgb', target_size=None,
         ValueError: if interpolation method is not supported.
     """
     if grayscale is True:
-        warnings.warn('grayscale is deprecated. Please use '
+        warn('grayscale is deprecated. Please use '
                       'color_mode = "grayscale"')
         color_mode = 'grayscale'
     if pil_image is None:
@@ -892,7 +896,7 @@ class ImageDataGenerator(object):
             if self.mean is not None:
                 x -= self.mean
             else:
-                warnings.warn('This ImageDataGenerator specifies '
+                warn('This ImageDataGenerator specifies '
                               '`featurewise_center`, but it hasn\'t'
                               'been fit on any training data. Fit it '
                               'first by calling `.fit(numpy_data)`.')
@@ -900,7 +904,7 @@ class ImageDataGenerator(object):
             if self.std is not None:
                 x /= (self.std + 1e-7)
             else:
-                warnings.warn('This ImageDataGenerator specifies '
+                warn('This ImageDataGenerator specifies '
                               '`featurewise_std_normalization`, but it hasn\'t'
                               'been fit on any training data. Fit it '
                               'first by calling `.fit(numpy_data)`.')
@@ -910,7 +914,7 @@ class ImageDataGenerator(object):
                 whitex = np.dot(flatx, self.principal_components)
                 x = np.reshape(whitex, x.shape)
             else:
-                warnings.warn('This ImageDataGenerator specifies '
+                warn('This ImageDataGenerator specifies '
                               '`zca_whitening`, but it hasn\'t'
                               'been fit on any training data. Fit it '
                               'first by calling `.fit(numpy_data)`.')
@@ -1096,7 +1100,7 @@ class ImageDataGenerator(object):
             raise ValueError('Input to `.fit()` should have rank 4. '
                              'Got array with shape: ' + str(x.shape))
         if x.shape[self.channel_axis] not in {1, 3, 4}:
-            warnings.warn(
+            warn(
                 'Expected input to be images (as Numpy array) '
                 'following the data format convention "' + self.data_format + '" '
                 '(channels on axis ' + str(self.channel_axis) + '), i.e. expected '
@@ -1319,12 +1323,12 @@ class NumpyArrayIterator(Iterator):
         self.x = np.asarray(x, dtype=K.floatx())
 
         if self.x.ndim != 4:
-            warnings.warn('Input data in `NumpyArrayIterator` '
+            warn('Input data in `NumpyArrayIterator` '
                              'should have rank 4. You passed an array '
                              'with shape\t%s' %  str(self.x.shape))
         else:
             if self.x.shape[channels_axis] not in {1, 3, 4}:
-                warnings.warn('NumpyArrayIterator is set to use the '
+                warn('NumpyArrayIterator is set to use the '
                               'data format convention "' + data_format + '" '
                               '(channels on axis ' + str(channels_axis) + '), i.e. expected '
                               'either 1, 3 or 4 channels on axis ' + str(channels_axis) + '. '
