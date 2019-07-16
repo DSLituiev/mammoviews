@@ -16,6 +16,11 @@
 
 ## Image pipeline
 
+### Preprocessing
+
+originally DICOMs were converted to 299x299 PNGs using `convert_dicom_list_to_png.sh` script
+
+
 ### Weight files are available [here](https://datashare.ucsf.edu/stash/dataset/doi:10.7272/Q6XK8CQ9)
 
 ### General image model
