@@ -16,16 +16,18 @@
 
 ## Image pipeline
 
+### Weight files are available (here)[https://datashare.ucsf.edu/stash/dataset/doi:10.7272/Q6XK8CQ9]
+
 ### General image model
 - scripts and config files: `image_classifiers/e5ce2d69b035975cb5336cec0da9a32a`
 
-- weight files:
+- weight file: `model-272-general-e5ce2d69b035975cb5336cec0da9a32a.hdf5`
 
 ### Wire localization model
 
 - scripts and config files: `image_classifiers/e8e71fc090141d7c6fb334359152d295`
 
-- weight files:
+- weight file: `model-134-wire-e8e71fc090141d7c6fb334359152d295.hdf5`
 
 
 ## Visualization of performance metrics 
