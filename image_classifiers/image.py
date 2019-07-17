@@ -28,6 +28,17 @@ try:
 except ImportError:
     pil_image = None
 
+try:
+    import pydicom
+except ImportError:
+    warn('unable to import pydicom')
+
+try:
+    import mudicom
+except ImportError:
+    warn('unable to import mudicom')
+
+
 if pil_image is not None:
     _PIL_INTERPOLATION_METHODS = {
         'nearest': pil_image.NEAREST,
@@ -410,7 +421,28 @@ def load_img(path, grayscale=False, color_mode='rgb', target_size=None,
     return img
         
 
-def load_img_opencv(path, grayscale=False, color_mode='rgb', target_size=None,
+def load_mudicom(fn, target_size=None):
+    mu = mudicom.load(fn)
+    img = mu.image.numpy[np.newaxis,...]
+    if target_size is not None:
+        return cv2.resize(img, target_size)
+    else:
+        return img
+
+def load_pydicom(fn, target_size=None, mode='rgb'):
+    dcm = pydicom.read_file(fn)
+    img = dcm.pixel_array
+    #import ipdb
+    #ipdb.set_trace()
+    if target_size is not None:
+        img = cv2.resize(img, target_size)
+    if mode=='rgb':
+        return np.stack([img]*3, axis=-1)
+    else:
+        return img
+
+
+def load_img_opencv(path, target_size=None, grayscale=False, color_mode='rgb', 
              interpolation='nearest'):
     """Loads an image using opencv format.
     # Arguments
