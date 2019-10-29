@@ -9,7 +9,7 @@ mudicom==0.1.2
 numpy==1.14.0
 opencv-python==3.3.0.10
 pandas==0.20.2
-Pillow==4.1.1
+Pillow==6.2.0
 pyaml==17.7.2
 pydicom==0.9.9
 scikit-image==0.13.0
