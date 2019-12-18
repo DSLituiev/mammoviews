@@ -1,5 +1,7 @@
 # Code for automatic labeling of special diagnostic mammography views from images and DICOM headers
 
+Reference: DOI: [10.1007/s10278-018-0154-z](https://www.ncbi.nlm.nih.gov/pubmed/30465142)
+
 ## DICOM
 ### Extract selected fields from DICOM headers
 
