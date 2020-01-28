@@ -17,6 +17,6 @@ scikit-learn==0.18.1
 scipy==0.19.1
 seaborn==0.7.1
 sklearn==0.0
-tensorflow-gpu==1.4.1
+tensorflow-gpu==1.15.2
 tensorflow-tensorboard==0.4.0rc3
 # -e git+https://github.com/cocodataset/cocoapi/@727b546dd9fa4e4bb113213c98a3925829fac0bf#egg=pycocotools&subdirectory=PythonAPI
