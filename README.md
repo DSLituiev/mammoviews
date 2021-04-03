@@ -23,7 +23,7 @@ Reference: DOI: [10.1007/s10278-018-0154-z](https://www.ncbi.nlm.nih.gov/pubmed/
 originally DICOMs were converted to 299x299 PNGs using `convert_dicom_list_to_png.sh` script
 
 
-### Weight files are available [here](https://datashare.ucsf.edu/stash/dataset/doi:10.7272/Q6XK8CQ9)
+### Weight files are available [here](https://datadryad.org/stash/dataset/doi:10.7272/Q6XK8CQ9)
 
 ### General image model
 - scripts and config files: `image_classifiers/e5ce2d69b035975cb5336cec0da9a32a`
